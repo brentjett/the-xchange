@@ -36,7 +36,6 @@ add_action( 'after_setup_theme', 'xchange_setup_theme' );
 function xchange_enqueue() {
 	$ver =  wp_get_theme()->get( 'Version' );
 	$base = get_template_directory_uri();
-	//wp_enqueue_style( 'xchange-reset', $base . '/css/reset.css', [], $ver );
 	wp_enqueue_style( 'xchange-main', $base . '/style.css', [], $ver );
 }
 add_action( 'wp_enqueue_scripts', 'xchange_enqueue' );
