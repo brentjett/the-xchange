@@ -1,0 +1,65 @@
+.brj-date-list {
+	--box-size: 64px;
+	--outline-weight: 2px;
+	
+	list-style: none;
+	font-size: 14px;
+	font-weight: normal;
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+	margin: 0;
+	padding: 0;
+}
+.brj-date-list li.date-item {
+	flex: 0 0 auto;
+}
+.brj-date-list li.date-item a {
+	display: flex;
+	flex-direction: row;
+	gap: clamp( 10px, var(--half-space), 30px );
+}
+.brj-date-list .item-date-thumb {
+	flex: 0 0 var(--box-size);
+	width: var(--box-size);
+	height: var(--box-size);
+	display: flex;
+	flex-direction: column;
+	border: var(--outline-weight) solid currentColor;
+	border-radius: 5px;
+	text-align: center;
+	font-family: var(--mono);
+	margin-top: 3px;
+}
+.brj-date-list .item-date-thumb .date-day,
+.brj-date-list .item-date-thumb .date-number {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.brj-date-list .item-date-thumb .date-day {
+	flex: 0 0 1.5em;
+	font-size: 1em;
+	font-weight: 600;
+	line-height: 1.1;
+	text-transform: uppercase;
+	border-bottom: var(--outline-weight) solid currentColor;
+}
+.brj-date-list .item-date-thumb .date-number {
+	flex: 1 1 auto;
+	font-size: 28px;
+}
+.brj-date-list .item-content {
+	display: flex;
+	flex-direction: column;
+	gap: 3px;
+	font-size: 14px;
+}
+.brj-date-list .item-content .item-title {
+	font-size: clamp( 13px, 1.4em, 30px );
+	font-weight: 700;
+	line-height: 1.2;
+}
+.brj-date-list .item-content .item-desc {
+	font-size: 1.1em;
+}

@@ -1,0 +1,188 @@
+/*
+Theme Name: The Xchange
+Author: Brent Jett
+Version: 1.0.0
+Description: A bare bones theme for the xchange site.
+*/
+
+:root {
+	
+	/* See https://systemfontstack.com/ */
+	--sans: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Ubuntu, roboto, noto, arial, sans-serif;
+	--serif: Iowan Old Style, Apple Garamond, Baskerville, Times New Roman, Droid Serif, Times, Source Serif Pro, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+	--mono: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
+	--fg-color: hsl(210deg 10% 25%);
+	--bg-color: #fff;
+	--space: 60px;
+	--half-space: calc( var(--space) / 2 );
+}
+
+html, body {
+	margin: 0;
+	padding: 0;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+body {
+	font-family: var(--sans);
+	font-size: calc( var(--space) / 3 );
+	line-height: 1.25;
+	color: var(--fg-color);
+	background: var(--bg-color);
+}
+@media ( max-width: 1400px ) {
+	body {
+		--space: 50px;
+		font-size: calc( var(--space) / 3 );
+	}
+}
+@media ( max-width: 1000px ) {
+	body {
+		--space: 40px;
+		font-size: calc( var(--space) / 3 );
+	}
+}
+@media ( max-width: 800px ) {
+	body {
+		--space: 30px;
+		font-size: calc( var(--space) / 3 );
+	}
+}
+
+@media ( prefers-color-scheme: dark ) {
+	body {
+		--fg-color: hsl(210deg 20% 87%);
+		--bg-color: hsl(210deg 4% 13%);
+	}
+}
+/* Explicit dark area - use for rich bg rows that you don't want to change light/dark */
+.dark {
+	--fg-color: hsl(210deg 20% 87%);
+	--bg-color: hsl(210deg 4% 13%);
+	color: var(--fg-color);
+	background: var(--bg-color);
+}
+.light {
+	--fg-color: #222;
+	--bg-color: #fff;
+	color: var(--fg-color);
+	background: var(--bg-color);
+}
+.xchange {
+	--half-space: clamp( 10px, calc( var(--space) / 2 ), 40px );
+}
+.xchange :where( h1, h2, h3, h4, h5, h6 ) {
+	font-weight: 900;
+	line-height: 1.2;
+	margin: 0;
+	text-transform: uppercase;
+}
+.xchange h1 {
+	font-size: 5em;
+	text-decoration: underline;
+	text-decoration-thickness: 0.06em;
+	text-underline-offset: -1em;
+	text-decoration-style: double;
+}
+.xchange h2 { font-size: 3em; }
+.xchange h3 { font-size: 2.3em; }
+.xchange p { font-size: 20px; line-height: 1.5; }
+
+/* Beaver Builder Base Styles */
+
+/* Remove clearfix hack in favor of flow-root or flex */
+:is( .fl-row, .fl-row-content, .fl-col-group, .fl-col, .fl-module, .fl-module-content ):before,
+:is( .fl-row, .fl-row-content, .fl-col-group, .fl-col, .fl-module, .fl-module-content ):after {
+	display: none;
+	content: "";
+}
+
+:where( .fl-module:first-child .fl-module-content ) {
+	margin-top: 0;
+}
+:where( .fl-module:last-child .fl-module-content ) {
+	margin-bottom: 0;
+}
+.fl-row-content-wrap {
+	padding: var(--space);
+}
+:where( .fl-row-content ) {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space);
+}
+
+.fl-col {
+	flex: 0 0 auto;
+}
+.fl-col-content {
+	display: flex;
+	flex-direction: column;
+}
+.fl-module {
+	margin: var(--half-space);
+}
+/* alternate gap
+.fl-col-content > * {
+	margin-bottom: var(--half-space);
+}
+.fl-col-content > *:last-child {
+	margin-bottom: 0;
+}
+*/
+
+
+.fl-module-heading + .fl-module-rich-text .fl-module-content {
+	margin-top: 0;
+}
+
+/* Messing with BB UI */
+.xchange .fl-row-full-width .fl-row-overlay,
+.xchange .fl-col-overlay,
+.xchange .fl-module-overlay {
+	left: 0;
+	right: 0;
+	bottom: 0;
+	border-radius: 0;
+	border-top-left-radius: 5px;
+}
+.xchange .fl-col-overlay,
+.xchange .fl-module-overlay {
+	top: 0;
+}
+.xchange .fl-col-highlight {
+	padding: 0;
+}
+.xchange .fl-col-highlight-guide {
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
+
+.fl-rich-text {
+	display: flow-root;
+}
+.fl-rich-text > * {
+	margin-top: var(--half-space);
+	margin-bottom: var(--half-space);
+}
+.fl-rich-text > :first-child {
+	margin-top: 0;
+}
+.fl-rich-text > :last-child {
+	margin-bottom: 0;
+}
+
+/* Beaver Builder Helper Classes */
+.push-down {
+	margin-top: auto;
+}
+.push-center {
+	margin: auto;
+}
+.no-gap .fl-col-group { gap: 0; }
+
+
+.justify-flex-end .fl-col-content { justify-content: flex-end; }

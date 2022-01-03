@@ -1,0 +1,1 @@
+<div>Scripture: <?php echo $settings->passage ?></div>
