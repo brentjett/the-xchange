@@ -17,7 +17,7 @@
 .brj-date-list li.date-item a {
 	display: flex;
 	flex-direction: row;
-	gap: clamp( 10px, var(--half-space), 30px );
+	gap: 24px;
 }
 .brj-date-list .item-date-thumb {
 	flex: 0 0 var(--box-size);

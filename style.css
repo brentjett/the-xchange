@@ -13,7 +13,7 @@ Description: A bare bones theme for the xchange site.
 	--mono: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
 	--fg-color: hsl(210deg 10% 25%);
 	--bg-color: #fff;
-	--space: 60px;
+	--space: 40px;
 	--half-space: calc( var(--space) / 2 );
 }
 
@@ -50,7 +50,7 @@ body {
 }
 
 @media ( prefers-color-scheme: dark ) {
-	body {
+	body:not( .dark, .light ) {
 		--fg-color: hsl(210deg 20% 87%);
 		--bg-color: hsl(210deg 4% 13%);
 	}
@@ -68,6 +68,7 @@ body {
 	color: var(--fg-color);
 	background: var(--bg-color);
 }
+
 .xchange {
 	--half-space: clamp( 10px, calc( var(--space) / 2 ), 40px );
 }
@@ -84,8 +85,8 @@ body {
 	text-underline-offset: -1em;
 	text-decoration-style: double;
 }
-.xchange h2 { font-size: 3em; }
-.xchange h3 { font-size: 2.3em; }
+.xchange h2 { font-size: 4em; }
+.xchange h3 { font-size: 3em; }
 .xchange p { font-size: 20px; line-height: 1.5; }
 
 /* Beaver Builder Base Styles */
@@ -96,40 +97,37 @@ body {
 	display: none;
 	content: "";
 }
-
-:where( .fl-module:first-child .fl-module-content ) {
-	margin-top: 0;
-}
-:where( .fl-module:last-child .fl-module-content ) {
-	margin-bottom: 0;
+:where( .fl-builder-content, .fl-row-content ) {
+	display: flow-root;
 }
 .fl-row-content-wrap {
 	padding: var(--space);
 }
-:where( .fl-row-content ) {
+:where( .fl-col-group ) {
 	display: flex;
-	flex-direction: column;
-	gap: var(--space);
+	flex-wrap: wrap;
+	/* do not use gap - it forces columns to wrap */
 }
-
 .fl-col {
 	flex: 0 0 auto;
+	display: flex;
 }
 .fl-col-content {
+	flex: 1 1 auto;
 	display: flex;
 	flex-direction: column;
 }
-.fl-module {
+
+:where( .fl-module ) .fl-module-content {
 	margin: var(--half-space);
 }
-/* alternate gap
-.fl-col-content > * {
-	margin-bottom: var(--half-space);
+/*
+:where( .fl-module:first-child ) .fl-module-content {
+	margin-top: 0;
 }
-.fl-col-content > *:last-child {
+:where( .fl-module:last-child ) .fl-module-content {
 	margin-bottom: 0;
-}
-*/
+}*/
 
 
 .fl-module-heading + .fl-module-rich-text .fl-module-content {
@@ -143,8 +141,6 @@ body {
 	left: 0;
 	right: 0;
 	bottom: 0;
-	border-radius: 0;
-	border-top-left-radius: 5px;
 }
 .xchange .fl-col-overlay,
 .xchange .fl-module-overlay {
@@ -165,8 +161,8 @@ body {
 	display: flow-root;
 }
 .fl-rich-text > * {
-	margin-top: var(--half-space);
-	margin-bottom: var(--half-space);
+	margin-top: 18px;
+	margin-bottom: 18px;
 }
 .fl-rich-text > :first-child {
 	margin-top: 0;
@@ -185,4 +181,4 @@ body {
 .no-gap .fl-col-group { gap: 0; }
 
 
-.justify-flex-end .fl-col-content { justify-content: flex-end; }
+.center-self { justify-self: center; align-self: center; }
