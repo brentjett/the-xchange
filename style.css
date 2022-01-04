@@ -13,7 +13,7 @@ Description: A bare bones theme for the xchange site.
 	--mono: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
 	--fg-color: hsl(210deg 10% 25%);
 	--bg-color: #fff;
-	--space: 40px;
+	--space: 30px;
 	--half-space: calc( var(--space) / 2 );
 }
 
@@ -29,18 +29,6 @@ body {
 	line-height: 1.25;
 	color: var(--fg-color);
 	background: var(--bg-color);
-}
-@media ( max-width: 1400px ) {
-	body {
-		--space: 50px;
-		font-size: calc( var(--space) / 3 );
-	}
-}
-@media ( max-width: 1000px ) {
-	body {
-		--space: 40px;
-		font-size: calc( var(--space) / 3 );
-	}
 }
 @media ( max-width: 800px ) {
 	body {
@@ -97,66 +85,25 @@ body {
 	display: none;
 	content: "";
 }
-:where( .fl-builder-content, .fl-row-content ) {
+:where( .fl-builder-content, .fl-row-content, .fl-col-group ) {
 	display: flow-root;
 }
 .fl-row-content-wrap {
 	padding: var(--space);
 }
-:where( .fl-col-group ) {
-	display: flex;
-	flex-wrap: wrap;
-	/* do not use gap - it forces columns to wrap */
-}
-.fl-col {
-	flex: 0 0 auto;
-	display: flex;
-}
 .fl-col-content {
-	flex: 1 1 auto;
 	display: flex;
 	flex-direction: column;
 }
-
 :where( .fl-module ) .fl-module-content {
-	margin: var(--half-space);
+	margin: calc( var(--half-space) * 1 ) var(--space);
 }
-/*
-:where( .fl-module:first-child ) .fl-module-content {
-	margin-top: 0;
-}
-:where( .fl-module:last-child ) .fl-module-content {
-	margin-bottom: 0;
-}*/
-
-
 .fl-module-heading + .fl-module-rich-text .fl-module-content {
 	margin-top: 0;
 }
 
-/* Messing with BB UI */
-.xchange .fl-row-full-width .fl-row-overlay,
-.xchange .fl-col-overlay,
-.xchange .fl-module-overlay {
-	left: 0;
-	right: 0;
-	bottom: 0;
-}
-.xchange .fl-col-overlay,
-.xchange .fl-module-overlay {
-	top: 0;
-}
-.xchange .fl-col-highlight {
-	padding: 0;
-}
-.xchange .fl-col-highlight-guide {
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-}
 
-
+/* Tighten Up Rich Text Area Spacing */
 .fl-rich-text {
 	display: flow-root;
 }
@@ -171,7 +118,7 @@ body {
 	margin-bottom: 0;
 }
 
-/* Beaver Builder Helper Classes */
+/* Beaver Builder Content Helper Classes */
 .push-down {
 	margin-top: auto;
 }
@@ -179,6 +126,4 @@ body {
 	margin: auto;
 }
 .no-gap .fl-col-group { gap: 0; }
-
-
 .center-self { justify-self: center; align-self: center; }

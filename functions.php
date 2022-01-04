@@ -37,6 +37,10 @@ function xchange_enqueue() {
 	$ver =  wp_get_theme()->get( 'Version' );
 	$base = get_template_directory_uri();
 	wp_enqueue_style( 'xchange-main', $base . '/style.css', [], $ver );
+	
+	if ( class_exists( 'FLBuilderModel' ) && FLBuilderModel::is_builder_active() ) {
+		wp_enqueue_style( 'xchange-bb-ui', $base . '/css/beaver-builder-ui.css', [], $ver );
+	}
 }
 add_action( 'wp_enqueue_scripts', 'xchange_enqueue' );
 
