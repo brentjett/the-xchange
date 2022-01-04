@@ -1,17 +1,14 @@
 /* Highlight Structure */
 .xchange .fl-row-highlight .fl-row-content,
 .xchange .fl-col-highlight .fl-col-content {
+	--weight: 1px;
 	border: none !important;
-	outline: 1px dashed currentColor;
-	outline-offset: -1px;
-	min-height: 40px;
+	outline: var(--weight) dashed currentColor;
+	outline-offset: calc( 0px - var(--weight) );
+	min-height: 60px;
 }
-.xchange .fl-row-highlight .fl-row-content {
-	padding: 0;
-}
-.xchange .fl-col-highlight .fl-col-content {
-	padding: 0;
-}
+.xchange .fl-row-highlight .fl-row-content,
+.xchange .fl-col-highlight .fl-col-content,
 .xchange .fl-col-has-cols.fl-col-highlight > .fl-col-content {
 	padding: 0;
 }

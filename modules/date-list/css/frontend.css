@@ -47,7 +47,7 @@
 }
 .brj-date-list .item-date-thumb .date-number {
 	flex: 1 1 auto;
-	font-size: 28px;
+	font-size: 2em;
 }
 .brj-date-list .item-content {
 	display: flex;
@@ -62,4 +62,16 @@
 }
 .brj-date-list .item-content .item-desc {
 	font-size: 1.1em;
+}
+@media( max-width: 400px ) {
+	.brj-date-list {
+		--box-size: 48px;
+		font-size: 13px;
+	}
+	.brj-date-list li.date-item a {
+		gap: 10px;
+	}
+	.brj-date-list .item-date-thumb .date-number {
+		font-size: 1.7em;
+	}
 }

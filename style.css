@@ -9,10 +9,9 @@ Description: A bare bones theme for the xchange site.
 	
 	/* See https://systemfontstack.com/ */
 	--sans: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Ubuntu, roboto, noto, arial, sans-serif;
-	--serif: Iowan Old Style, Apple Garamond, Baskerville, Times New Roman, Droid Serif, Times, Source Serif Pro, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
 	--mono: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
 	--fg-color: hsl(210deg 10% 25%);
-	--bg-color: #fff;
+	--bg-color: #f3f0ec;
 	--space: 30px;
 	--half-space: calc( var(--space) / 2 );
 }
@@ -29,12 +28,6 @@ body {
 	line-height: 1.25;
 	color: var(--fg-color);
 	background: var(--bg-color);
-}
-@media ( max-width: 800px ) {
-	body {
-		--space: 30px;
-		font-size: calc( var(--space) / 3 );
-	}
 }
 
 @media ( prefers-color-scheme: dark ) {
@@ -67,7 +60,7 @@ body {
 	text-transform: uppercase;
 }
 .xchange h1 {
-	font-size: 5em;
+	font-size: 6em;
 	text-decoration: underline;
 	text-decoration-thickness: 0.06em;
 	text-underline-offset: -1em;
@@ -76,6 +69,16 @@ body {
 .xchange h2 { font-size: 4em; }
 .xchange h3 { font-size: 3em; }
 .xchange p { font-size: 20px; line-height: 1.5; }
+.xchange blockquote {
+	font-size: 18px;
+	font-style: italic;
+	line-height: 1.5;
+	margin: 0;
+	padding: 0;
+}
+.xchange a {
+	color: var(--fg-color);
+}
 
 /* Beaver Builder Base Styles */
 
@@ -89,17 +92,46 @@ body {
 	display: flow-root;
 }
 .fl-row-content-wrap {
-	padding: var(--space);
+	padding: calc( var(--space) * 2 );
 }
 .fl-col-content {
 	display: flex;
 	flex-direction: column;
+	position: relative;
 }
 :where( .fl-module ) .fl-module-content {
-	margin: calc( var(--half-space) * 1 ) var(--space);
+	margin: var(--half-space) var(--space);
 }
 .fl-module-heading + .fl-module-rich-text .fl-module-content {
 	margin-top: 0;
+}
+@media ( max-width: 900px ) {
+	.fl-row-content-wrap {
+		padding: var(--space);
+	}
+}
+@media ( max-width: 800px ) {
+	body {
+		--space: 30px;
+		font-size: calc( var(--space) / 3 );
+	}
+}
+@media ( max-width: 700px ) {
+	.xchange h1 { font-size: 4em; }
+	.xchange h2 { font-size: 3em; }
+}
+@media ( max-width: 500px ) {
+	body {
+		--space: 20px;
+	}
+	.fl-row-content-wrap {
+		padding: 20px;
+	}
+}
+@media ( max-width: 400px ) {
+	.fl-row-content-wrap {
+		padding: 10px;
+	}
 }
 
 
@@ -127,3 +159,10 @@ body {
 }
 .no-gap .fl-col-group { gap: 0; }
 .center-self { justify-self: center; align-self: center; }
+.bottom-text {
+	position: absolute !important;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 1;
+}
