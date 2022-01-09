@@ -83,6 +83,7 @@ body {
 /* Beaver Builder Base Styles */
 
 /* Remove clearfix hack in favor of flow-root or flex */
+
 :is( .fl-row, .fl-row-content, .fl-col-group, .fl-col, .fl-module, .fl-module-content ):before,
 :is( .fl-row, .fl-row-content, .fl-col-group, .fl-col, .fl-module, .fl-module-content ):after {
 	display: none;

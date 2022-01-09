@@ -1,0 +1,81 @@
+.brj-date-item {
+	--box-size: 64px;
+	--outline-weight: 2px;
+
+	font-size: 14px;
+	font-weight: normal;
+	display: flex;
+	flex-direction: row;
+	gap: 24px;
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+	border-radius: 5px;
+}
+a.brj-date-item:hover {
+	--hover-bg-color: hsla(0, 0%, 100%, 0.85);
+	background: var(--hover-bg-color);
+	box-shadow: 0 0 0 18px var(--hover-bg-color);
+}
+.brj-date-item .item-date-thumb {
+	flex: 0 0 var(--box-size);
+	width: var(--box-size);
+	height: var(--box-size);
+	display: flex;
+	flex-direction: column;
+	border: var(--outline-weight) solid currentColor;
+	border-radius: 5px;
+	text-align: center;
+	font-family: var(--mono);
+}
+.brj-date-item .item-date-thumb .date-day,
+.brj-date-item .item-date-thumb .date-number {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.brj-date-item .item-date-thumb .date-day {
+	flex: 0 0 1.5em;
+	font-size: 1em;
+	font-weight: 600;
+	line-height: 1.1;
+	text-transform: uppercase;
+	border-bottom: var(--outline-weight) solid currentColor;
+}
+.brj-date-item .item-date-thumb .date-number {
+	flex: 1 1 auto;
+	font-size: 2em;
+}
+.brj-date-item .item-content {
+	display: flex;
+	flex-direction: column;
+	gap: 3px;
+	font-size: 14px;
+	line-height: 1.3;
+	margin-top: -4px; /* weird text alignment issue */
+}
+.brj-date-item .item-content .item-title {
+	font-size: clamp( 13px, 1.4em, 30px );
+	font-weight: 700;
+	line-height: 1.2;
+}
+.brj-date-item .item-content .item-desc {
+	font-size: 1.1em;
+}
+@media( max-width: 400px ) {
+	.brj-date-item {
+		--box-size: 48px;
+		font-size: 13px;
+	}
+	.brj-date-item li.date-item a {
+		gap: 10px;
+	}
+	.brj-date-item .item-date-thumb .date-number {
+		font-size: 1.7em;
+	}
+}
+@media( prefers-color-scheme: dark ) {
+	a.brj-date-item:hover {
+		--hover-bg-color: hsl(210deg 4% 9%);
+	}
+}
