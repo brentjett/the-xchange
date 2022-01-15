@@ -1,7 +1,7 @@
 /*
 Theme Name: The Xchange
 Author: Brent Jett
-Version: 1.1.0
+Version: 1.2.0
 Description: A bare bones theme for the xchange site.
 */
 
@@ -32,13 +32,13 @@ body {
 
 @media ( prefers-color-scheme: dark ) {
 	body:not( .dark, .light ) {
-		--fg-color: hsl(210deg 20% 87%);
+		--fg-color: hsl(34deg 20% 87%);
 		--bg-color: hsl(210deg 4% 13%);
 	}
 }
 /* Explicit dark area - use for rich bg rows that you don't want to change light/dark */
 .dark {
-	--fg-color: hsl(210deg 20% 87%);
+	--fg-color: hsl(34deg 20% 87%);
 	--bg-color: hsl(210deg 4% 13%);
 	color: var(--fg-color);
 	background: var(--bg-color);
@@ -78,6 +78,92 @@ body {
 }
 .xchange a {
 	color: var(--fg-color);
+}
+
+
+/* Header */
+.xchange-header {
+	--header-size: 70px;
+	--header-radius: 4px;
+	padding: var(--space);
+}
+.xchange-header > nav {
+	display: flex;
+	height: var(--header-size);
+	max-width: 1400px;
+	margin: 0 auto;
+}
+.xchange-header-navbar {
+	flex: 1 1 auto;
+	display: flex;
+	color: var(--bg-color);
+	background-color: var(--fg-color);
+	border-radius: var(--header-radius);
+}
+.xchange-header-navbar a {
+	flex: 0 1 auto;
+	color: inherit;
+	display: inline-flex;
+	align-items: center;
+	text-decoration: none;
+	font-size: 22px;
+	border-radius: var(--header-radius);
+}
+.xchange-header-navbar a:hover {
+	background: rgba(0,0,0,.2);
+}
+.lr-branding {
+	margin-right: auto;
+	padding: 0 20px;
+	border-radius: 5px;
+}
+.lr-branding svg {
+	max-width: 100%;
+}
+.xchange-header-navbar a.more-icon {
+	flex: 0 0 var(--header-size);
+	display: flex;
+	justify-content: center;
+}
+.xchange-header-navbar ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+}
+.xchange-header-navbar ul li {
+	display: flex;
+}
+.xchange-header-navbar ul li ul {
+	display: none;
+}
+.xchange-header-navbar ul > li > a {
+	padding: 10px;
+}
+.xchange-pwood-link {
+	flex: 0 0 var(--header-size);
+}
+.xchange-pwood-link svg {
+	width: var(--header-size);
+	height: var(--header-size);
+}
+@media ( max-width: 840px ) {
+	.xchange-header-navbar ul.main-nav {
+		display: none;
+	}
+}
+@media ( max-width: 600px ) {
+	.xchange-header {
+		--header-size: 60px;
+	}
+	.lr-branding {
+		padding: 3vw;
+	}
+}
+@media ( max-width: 450px ) {
+	.xchange-header {
+		--header-size: 50px;
+	}
 }
 
 /* Beaver Builder Base Styles */

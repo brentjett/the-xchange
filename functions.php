@@ -29,6 +29,12 @@ function xchange_setup_theme() {
 	// Open WPCS issue: {@link https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/issues/1043}.
 	// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 	$GLOBALS['content_width'] = 960;
+	
+	// Menu Locations
+	register_nav_menus( [
+		'top-nav'   => __( 'Top Nav Bar' ),
+		'more-menu' => __( 'Ellipsis Menu' ),
+	] );
 }
 add_action( 'after_setup_theme', 'xchange_setup_theme' );
 
@@ -54,3 +60,7 @@ function xchange_init() {
 	}
 }
 add_action( 'init', 'xchange_init' );
+
+function xchange_should_include_header() {
+	return true;
+}

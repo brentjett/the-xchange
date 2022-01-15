@@ -9,3 +9,6 @@
 <body <?php body_class() ?>>
 <?php wp_body_open(); ?>
 <main id="main" class="xchange" role="main">
+<?php if ( xchange_should_include_header() ) {
+	get_template_part( 'template-parts/top-nav' );
+} ?>
