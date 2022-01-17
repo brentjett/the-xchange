@@ -1,7 +1,7 @@
 /*
 Theme Name: The Xchange
 Author: Brent Jett
-Version: 1.2.0
+Version: 1.2.1
 Description: A bare bones theme for the xchange site.
 */
 
@@ -24,7 +24,7 @@ html, body {
 }
 body {
 	font-family: var(--sans);
-	font-size: calc( var(--space) / 3 );
+	font-size: 20px;
 	line-height: 1.25;
 	color: var(--fg-color);
 	background: var(--bg-color);
@@ -59,16 +59,16 @@ body {
 	margin: 0;
 	text-transform: uppercase;
 }
-.xchange h1 {
-	font-size: 6em;
-	text-decoration: underline;
-	text-decoration-thickness: 0.06em;
-	text-underline-offset: -1em;
-	text-decoration-style: double;
-}
-.xchange h2 { font-size: 4em; }
-.xchange h3 { font-size: 3em; }
-.xchange p { font-size: 20px; line-height: 1.5; }
+
+/* Heading Scale */
+.xchange h1 { font-size: 2.4em; }
+.xchange h2 { font-size: 2.2em; }
+.xchange h3 { font-size: 2em; }
+.xchange h4 { font-size: 1.8em; }
+.xchange h5 { font-size: 1.6em; }
+.xchange h6 { font-size: 1.4em; }
+
+.xchange p { line-height: 1.5; }
 .xchange blockquote {
 	font-size: 18px;
 	font-style: italic;
@@ -78,6 +78,28 @@ body {
 }
 .xchange a {
 	color: var(--fg-color);
+}
+.xchange :is( h1, h2, h3, h4, h5, h6 ) a {
+	text-decoration: none;
+}
+.xchange :is( h1, h2, h3, h4, h5, h6 ) a:hover {
+	text-decoration: underline;
+}
+
+/* Content Area */
+article {
+	--max-width: 1400px;
+	max-width: var(--max-width);
+	margin: 0 auto;
+	padding: 0 var(--space) 60px;
+}
+article.post {
+	--max-width: 720px;
+	padding: 30px var(--space);
+}
+article.fl-builder-enabled {
+	max-width: none;
+	padding: 0;
 }
 
 
@@ -169,21 +191,21 @@ body {
 /* Beaver Builder Base Styles */
 
 /* Remove clearfix hack in favor of flow-root or flex */
-
 :is( .fl-row, .fl-row-content, .fl-col-group, .fl-col, .fl-module, .fl-module-content ):before,
 :is( .fl-row, .fl-row-content, .fl-col-group, .fl-col, .fl-module, .fl-module-content ):after {
 	display: none;
 	content: "";
 }
-:where( .fl-builder-content, .fl-row-content, .fl-col-group ) {
+/* Use flow-root instead of clearfix */
+:where( .fl-builder-content, .fl-row-content, .fl-col-group, .fl-col-content ) {
 	display: flow-root;
 }
+
+/* Node Spacing */
 .fl-row-content-wrap {
 	padding: calc( var(--space) * 2 );
 }
 .fl-col-content {
-	display: flex;
-	flex-direction: column;
 	position: relative;
 }
 :where( .fl-module ) .fl-module-content {
@@ -252,4 +274,10 @@ body {
 	left: 0;
 	right: 0;
 	z-index: 1;
+}
+
+/* Random nuts and bolts */
+.wp-block-image img {
+	max-width: 100%;
+	height: auto;
 }

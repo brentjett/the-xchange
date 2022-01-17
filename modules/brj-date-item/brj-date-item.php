@@ -1,16 +1,12 @@
 <?php
-class BRJDateItemModule extends FLBuilderModule {
+class BRJDateItemModule extends BRJUtilityModule {
 	public function __construct() {
 		parent::__construct( [
-			'name'            => __( 'Event Item', 'the-xchange' ),
+			'name'            => __( 'Event', 'the-xchange' ),
 			'description'     => __( 'A single event item', 'the-xchange' ),
 			'category'        => __( 'Basic', 'the-xchange' ),
 			'partial_refresh' => true,
 		] );
-	}
-	
-	public function attr( $name, $value ) {
-		return $value ? $name . '="' . $value . '"' : '';
 	}
 }
 

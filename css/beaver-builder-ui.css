@@ -88,7 +88,7 @@
 	transform: translateX(calc(-50% - 1px));
 }
 .xchange .fl-block-col-resize-handle-wrap {
-	flex: 0 0 60px;
+	flex: 0 0 80px;
 	position: static;
 	top: auto;
 	padding: 0;
