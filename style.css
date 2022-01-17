@@ -1,7 +1,7 @@
 /*
 Theme Name: The Xchange
 Author: Brent Jett
-Version: 1.2.1
+Version: 1.2.2
 Description: A bare bones theme for the xchange site.
 */
 
@@ -68,7 +68,10 @@ body {
 .xchange h5 { font-size: 1.6em; }
 .xchange h6 { font-size: 1.4em; }
 
-.xchange p { line-height: 1.5; }
+.xchange p {
+	font-size: 20px;
+	line-height: 1.5;
+}
 .xchange blockquote {
 	font-size: 18px;
 	font-style: italic;
@@ -222,7 +225,7 @@ article.fl-builder-enabled {
 @media ( max-width: 800px ) {
 	body {
 		--space: 30px;
-		font-size: calc( var(--space) / 3 );
+		font-size: 16px;
 	}
 }
 @media ( max-width: 700px ) {
